@@ -7,4 +7,4 @@ Lilypond Documentation https://lilypond.org/website/development.de.html
 SVG https://inkscape.org/de/entwickeln/das-svg-format/
 
 ## Tasks
-- [ ] Check if OpenGL is an alternative
+- [ ] Check if OpenGL is an alternative https://wiki.delphigl.com/index.php/Tutorial_2D

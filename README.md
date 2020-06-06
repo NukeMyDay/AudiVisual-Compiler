@@ -10,3 +10,4 @@ SVG https://inkscape.org/de/entwickeln/das-svg-format/
 - [ ] Check if OpenGL is an output alternative https://wiki.delphigl.com/index.php/Tutorial_2D
 - [ ] Get back into Java
 - [ ] Understand Lilipond Notation and its structure
+- [ ] Which compiler structures do we need

@@ -7,7 +7,8 @@ Lilypond Documentation https://lilypond.org/website/development.de.html
 SVG https://inkscape.org/de/entwickeln/das-svg-format/
 
 ## Tasks - KW24
-- [ ] Check if OpenGL is an output alternative https://wiki.delphigl.com/index.php/Tutorial_2D
+- [x] Check if OpenGL is an output alternative https://wiki.delphigl.com/index.php/Tutorial_2D
+      -> outcome: no, we'll stick to svg
 - [ ] Get back into Java
 - [ ] Understand Lilipond Notation and its structure
 - [ ] Which compiler structures do we need

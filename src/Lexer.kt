@@ -1,24 +1,21 @@
 sealed class Token {
-    //Hallo
+    override fun toString(): String = javaClass.simpleName
     // Notes
     object C: Token()
-    object CIS: Token()
     object D: Token()
-    object DIS: Token()
     object E: Token()
     object F: Token()
-    object FIS: Token()
     object G: Token()
-    object GIS: Token()
     object A: Token()
+    object B: Token()
     object H: Token()
 
-    // Octave Changes
-    // object OCTAVE_UP: Token()
-    // object OCTAVE_DOWN: Token()
-
     // Abstracts
-    // object RELATIVE: Token()
+    object LEFT_CURLY_PAREN: Token()
+    object RIGHT_CURLY_PAREN: Token()
+
+    // End of File
+    object END_OF_FILE: Token()
 }
 
 class Peekable<T>(val iterator: Iterator<T>) {
@@ -28,13 +25,41 @@ class Peekable<T>(val iterator: Iterator<T>) {
         iterator.hasNext() -> iterator.next()
         else -> null
     }
-
-    fun peek(): T? = next().also { lookahead = it }
 }
 
+class Lexer(input: String) {
+    override fun toString(): String = javaClass.simpleName
+    private val chars = Peekable(input.iterator())
+    private var lookahead: Token? = null
 
-class Lexer {
-    /*
-    TODO
-     */
+    // fun peek(): Token? {
+    //     lookahead = next()
+    //     return lookahead
+    // }
+
+    fun next(): Token {
+        val char = chars.next() ?: return Token.END_OF_FILE
+        return when(char) {
+            'c'     -> Token.C
+            'd'     -> Token.D
+            'e'     -> Token.E
+            'f'     -> Token.F
+            'g'     -> Token.G
+            'a'     -> Token.A
+            'b'     -> Token.B
+            'h'     -> Token.H
+            '{'     -> Token.LEFT_CURLY_PAREN
+            '}'     -> Token.RIGHT_CURLY_PAREN
+            else    -> when {
+                char.isWhitespace() -> next()
+                else -> throw Exception("Unexpected $char")
+            }
+        }
+    }
+}
+
+fun main() {
+    val input = "{c d e f g}{a c h}"
+    val lexer = Lexer(input)
+    while(lexer.next().also(::println) !is Token.END_OF_FILE) {}
 }

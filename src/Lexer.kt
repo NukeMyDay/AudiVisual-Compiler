@@ -40,17 +40,17 @@ class Lexer(input: String) {
     fun next(): Token {
         val char = chars.next() ?: return Token.END_OF_FILE
         return when(char) {
-            'c'     -> Token.C
-            'd'     -> Token.D
-            'e'     -> Token.E
-            'f'     -> Token.F
-            'g'     -> Token.G
-            'a'     -> Token.A
-            'b'     -> Token.B
-            'h'     -> Token.H
-            '{'     -> Token.LEFT_CURLY_PAREN
-            '}'     -> Token.RIGHT_CURLY_PAREN
-            else    -> when {
+            'c' -> Token.C
+            'd' -> Token.D
+            'e' -> Token.E
+            'f' -> Token.F
+            'g' -> Token.G
+            'a' -> Token.A
+            'b' -> Token.B
+            'h' -> Token.H
+            '{' -> Token.LEFT_CURLY_PAREN
+            '}' -> Token.RIGHT_CURLY_PAREN
+            else -> when {
                 char.isWhitespace() -> next()
                 else -> throw Exception("Unexpected $char")
             }

@@ -7,9 +7,7 @@ sealed class Token {
     object F: Token()
     object G: Token()
     object A: Token()
-    object HF: Token()
     object H: Token()
-    object CS: Token()
 
     // Durations
     data class NOTE_DURATION(val value: Int): Token()
@@ -40,15 +38,6 @@ private class Peekable<T>(val iterator: Iterator<T>) {
 }
 
 class Lexer(input: String) {
-
-
-
-
-
-
-
-
-
     private var myInput = input.split(" ")
     private val validatedInput = mutableListOf<String>()
     private val processedInput = mutableListOf<String>()
@@ -86,13 +75,13 @@ class Lexer(input: String) {
 
         for(i in processedInput) {
             when(i.replace("[s0-9\',]".toRegex(), "")) {
-                "c" -> Token.C.also(::println).also{ validate(i) }
-                "d" -> Token.D.also(::println).also{ validate(i) }
-                "f" -> Token.F.also(::println).also{ validate(i) }
-                "h" -> Token.H.also(::println).also{ validate(i) }
-                "e" -> Token.E.also(::println).also{ validate(i) }
-                "a" -> Token.A.also(::println).also{ validate(i) }
-                "g" -> Token.G.also(::println).also{ validate(i) }
+                "c" -> validate(i).also { Token.C.also(::println) }
+                "d" -> validate(i).also { Token.D.also(::println) }
+                "f" -> validate(i).also { Token.F.also(::println) }
+                "h" -> validate(i).also { Token.H.also(::println) }
+                "e" -> validate(i).also { Token.E.also(::println) }
+                "a" -> validate(i).also { Token.A.also(::println) }
+                "g" -> validate(i).also { Token.G.also(::println) }
                 else -> println(i)
             }
         }
@@ -116,47 +105,6 @@ class Lexer(input: String) {
 
         return Token.OCTAVE(value).also(::println)
     }
-
-
-
-
-//    private val chars = Peekable(processedInput.iterator())
-//    private var lookahead: Token? = null
-//    private var sustained: String? = null
-//
-//    fun peek() = next().also { lookahead = it }
-//
-//    fun next(): Token {
-//        val char = chars.iterate() ?: return Token.END_OF_FILE
-//        return when(char && peek() != null) {
-//
-//            'c' -> Token.C
-//            'd' -> Token.D
-//            'e' -> Token.E
-//            'f' -> Token.F
-//            'g' -> Token.G
-//            'a' -> Token.A
-//            'b' -> Token.BF
-//            'h' -> Token.B
-//
-//            '{' -> Token.LEFT_PAREN
-//            '}' -> Token.RIGHT_PAREN
-//
-//            else -> when {
-//                char.isDigit() -> throw Exception("Nummer $char")
-//                else -> next()
-//            }
-//        }
-//    }
-//
-//    private fun halfTone(c: Char): Token {
-//        var res = c.toString()
-//        while (chars.peek()?.isWhitespace() == false) res += chars.iterate()
-//        return when(res) {
-//            "cs" -> Token.CS
-//            else -> throw Exception("Unexpected $res")
-//        }
-//    }
 }
 
 fun main() {

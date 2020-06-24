@@ -7,8 +7,8 @@ sealed class Token {
     object F: Token()
     object G: Token()
     object A: Token()
-    object BF: Token()
-    object B: Token()
+    object HF: Token()
+    object H: Token()
     object CS: Token()
 
     // Durations
@@ -85,22 +85,36 @@ class Lexer(input: String) {
 
 
         for(i in processedInput) {
-            val containsDigit = i.contains("[0-9]".toRegex())
-            val containsOcatve = i.contains("'") or i.contains(",")
-
-
-
-            if(containsDigit and containsOcatve or containsOcatve or containsDigit) println("Hurray ... ")
-
-
-            for(c in i) {
-                when {
-
-                    c.isDigit() -> println("Hurray, $c is a digit")
-                    c == '\'' -> println("Hurray, $c is a \'")
-                }
+            when(i.replace("[s0-9\',]".toRegex(), "")) {
+                "c" -> Token.C.also(::println).also{ validate(i) }
+                "d" -> Token.D.also(::println).also{ validate(i) }
+                "f" -> Token.F.also(::println).also{ validate(i) }
+                "h" -> Token.H.also(::println).also{ validate(i) }
+                "e" -> Token.E.also(::println).also{ validate(i) }
+                "a" -> Token.A.also(::println).also{ validate(i) }
+                "g" -> Token.G.also(::println).also{ validate(i) }
+                else -> println(i)
             }
         }
+    }
+
+    private fun validate(input: String) {
+        if (input.contains("[0-9]".toRegex())) validateDuration(input)
+        if (input.contains("[\',]".toRegex())) validateOctave(input)
+    }
+
+    private fun validateDuration(input: String): Token {
+         return Token.NOTE_DURATION(input.replace("[cdefgah\',]".toRegex(), "").toInt()).also(::println)
+    }
+
+    private fun validateOctave(input: String): Token {
+        var value = 0
+        when (input.replace("[cdefgah0-9]".toRegex(), "")) {
+            "\'" -> value++
+            "," -> value--
+        }
+
+        return Token.OCTAVE(value).also(::println)
     }
 
 
@@ -147,11 +161,6 @@ class Lexer(input: String) {
 
 fun main() {
     val input = """
-  \context {
-    \Voice
-    \override TextScript.padding = #1
-    \override Glissando.thickness = #3 }
-}
         \relative
         {
         \clef bass

@@ -10,6 +10,5 @@ SVG https://inkscape.org/de/entwickeln/das-svg-format/
 - [x] Check if OpenGL is an output alternative. -> outcome: no, we'll stick to svg
 - [x] Get back into Kotlin
 - [x] Understand Lilipond Notation and its structure
-- [ ] Which compiler structures do we need
 - [x] understand Lexer functions
-- [ ] understand peekable class
+- [x] understand peekable class

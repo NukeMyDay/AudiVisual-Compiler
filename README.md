@@ -8,7 +8,8 @@ SVG https://inkscape.org/de/entwickeln/das-svg-format/
 
 ## Tasks - KW24
 - [x] Check if OpenGL is an output alternative. -> outcome: no, we'll stick to svg
-- [ ] Get back into Kotlin
-- [ ] Understand Lilipond Notation and its structure
+- [x] Get back into Kotlin
+- [x] Understand Lilipond Notation and its structure
 - [ ] Which compiler structures do we need
-- [ ] understand Lexer functions
+- [x] understand Lexer functions
+- [ ] understand peekable class

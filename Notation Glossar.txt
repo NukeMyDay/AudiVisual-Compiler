@@ -1,0 +1,4 @@
+. Punktation (Notenlänge +50% ihrer ursprungslängen Länge)
+1-128 Notenlängen Angabe (1/1-128)
+, Oktave +1
+' Oktave -1

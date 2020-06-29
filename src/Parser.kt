@@ -9,3 +9,9 @@ class Parser {
     }
 
 }
+
+fun main() {
+    val input = "<a b>"
+
+    println("${input.split(" ", "<", ">")}")
+}

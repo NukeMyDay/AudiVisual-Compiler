@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e20aa69-8ed0-4ee7-bb83-5e2795932f95" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Notation Glossar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music sheets/Nuvole_Bianche_Original.ly" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music sheets/Nuvole_Bianche_Original.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music sheets/Nuvole_Bianche_Original.mxl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music sheets/Nuvole_Bianche_Original.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music sheets/test.ly" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music sheets/test.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Lexer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lexer.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.ly" beforeDir="false" afterPath="$PROJECT_DIR$/test.ly" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/test.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.ly" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,11 +35,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1dts795oklugP4q0BnugWvnwBhL" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Git-Repo" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -61,9 +72,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ParserKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="AudiVisual-Compiler" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="ParserKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.LexerKt" />
+        <item itemvalue="Kotlin.ParserKt" />
         <item itemvalue="Application.testing" />
       </list>
     </recent_temporary>
@@ -81,23 +106,30 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1674" height="347" key="GridCell.Tab.0.bottom" timestamp="1593456634024">
+    <state width="1674" height="347" key="GridCell.Tab.0.bottom" timestamp="1593473969584">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="347" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1593456634024" />
-    <state width="1674" height="347" key="GridCell.Tab.0.center" timestamp="1593456634024">
+    <state width="1674" height="347" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1593473969584" />
+    <state width="1674" height="347" key="GridCell.Tab.0.center" timestamp="1593473969582">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="347" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1593456634024" />
-    <state width="1674" height="347" key="GridCell.Tab.0.left" timestamp="1593456634024">
+    <state width="1674" height="347" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1593473969582" />
+    <state width="1674" height="347" key="GridCell.Tab.0.left" timestamp="1593473969582">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="347" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1593456634024" />
-    <state width="1674" height="347" key="GridCell.Tab.0.right" timestamp="1593456634024">
+    <state width="1674" height="347" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1593473969582" />
+    <state width="1674" height="347" key="GridCell.Tab.0.right" timestamp="1593473969582">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="347" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1593456634024" />
+    <state width="1674" height="347" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1593473969582" />
+    <state x="452" y="436" key="Vcs.Push.Dialog.v2" timestamp="1593456806612">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="452" y="436" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1593456806612" />
   </component>
   <component name="masterDetails">
     <states>

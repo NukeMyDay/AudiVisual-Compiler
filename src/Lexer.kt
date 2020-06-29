@@ -7,7 +7,11 @@ sealed class Token {
     object F: Token()
     object G: Token()
     object A: Token()
-    object H: Token()
+    object BF: Token()
+    object B: Token()
+
+    // Rest
+    object R: Token()
 
     // Durations
     data class NOTE_DURATION(val value: Int): Token()
@@ -24,17 +28,6 @@ sealed class Token {
     object END_OF_FILE: Token()
 
     override fun toString(): String = javaClass.simpleName
-}
-
-private class Peekable<T>(val iterator: Iterator<T>) {
-    var lookahead: T? = null
-    fun iterate(): T? = when {
-        lookahead != null -> lookahead.also { lookahead = null }
-        iterator.hasNext() -> iterator.next()
-        else -> null
-    }
-
-    fun peek(): T? = iterate().also { lookahead = it }
 }
 
 class Lexer(input: String) {
@@ -70,30 +63,42 @@ class Lexer(input: String) {
         }
 
         processedInput.removeIf(String::isBlank)
-        println("\n\nProcessed:\n$processedInput")
+        println("\n\nProcessed:\n$processedInput\n\n")
 
+        var relevantInput = false
 
         for(i in processedInput) {
-            when(i.replace("[s0-9\',]".toRegex(), "")) {
-                "c" -> validate(i).also { Token.C.also(::println) }
-                "d" -> validate(i).also { Token.D.also(::println) }
-                "f" -> validate(i).also { Token.F.also(::println) }
-                "h" -> validate(i).also { Token.H.also(::println) }
-                "e" -> validate(i).also { Token.E.also(::println) }
-                "a" -> validate(i).also { Token.A.also(::println) }
-                "g" -> validate(i).also { Token.G.also(::println) }
-                else -> println(i)
+            if(i == "}") relevantInput = false
+
+            if(relevantInput) {
+                when (i.replace("[s0-9\',]".toRegex(), "")) {
+                    "c" -> validate(i).also { Token.C.also(::println) }
+                    "d" -> validate(i).also { Token.D.also(::println) }
+                    "e" -> validate(i).also { Token.E.also(::println) }
+                    "f" -> validate(i).also { Token.F.also(::println) }
+                    "g" -> validate(i).also { Token.G.also(::println) }
+                    "a" -> validate(i).also { Token.A.also(::println) }
+                    "bf" -> validate(i).also { Token.BF.also(::println) }
+                    "b" -> validate(i).also { Token.B.also(::println) }
+                    "r" -> if (i.contains("[0-9]".toRegex())) validateRestDuration(i).also { Token.R.also(::println) }
+                }
             }
+
+            if(i == "{") relevantInput = true
         }
     }
 
     private fun validate(input: String) {
-        if (input.contains("[0-9]".toRegex())) validateDuration(input)
+        if (input.contains("[0-9]".toRegex())) validateNoteDuration(input)
         if (input.contains("[\',]".toRegex())) validateOctave(input)
     }
 
-    private fun validateDuration(input: String): Token {
-         return Token.NOTE_DURATION(input.replace("[cdefgah\',]".toRegex(), "").toInt()).also(::println)
+    private fun validateNoteDuration(input: String): Token {
+         return Token.NOTE_DURATION(input.replace("[cdefgahr\',]".toRegex(), "").toInt()).also(::println)
+    }
+
+    private fun validateRestDuration(input: String): Token {
+        return Token.REST_DURATION(input.replace("r", "").toInt()).also(::println)
     }
 
     private fun validateOctave(input: String): Token {
@@ -112,9 +117,9 @@ fun main() {
         \relative
         {
         \clef bass
-        c2 d2 e5' f, g
+        c2 d2 e5' f, g r2
         }
-        {a c h cs}""".trimMargin()
+        {a c bf cs}""".trimMargin()
     val lexer = Lexer(input)
 //    while(lexer.next().also(::println) !is Token.END_OF_FILE) {}
 }

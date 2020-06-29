@@ -41,7 +41,7 @@ Good luck with LilyPond!  Happy engraving.
 
 % \relative 
 {
-  c1 d e f8 g a b c e f g
+  c1 d e f8 g a b c e f g r2 r r64 cs r
 }
 {
   c2 d128 e f r2 g4 a b c e f g

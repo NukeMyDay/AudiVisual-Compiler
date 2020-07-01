@@ -1,15 +1,11 @@
 import java.lang.Exception
 
 sealed class Token {
-
-    data class NOTE(val type: String, val duration: Double, val octave: Int): Token()
+    data class NOTE(val type: String, val duration: String?, val octave: String?): Token()
     object REST: Token()
-
     object LEFT_PAREN: Token()
     object RIGHT_PAREN: Token()
-
-    data class EXPRESSION(val type: String, val value: String): Token()
-
+    data class EXPRESSION(val type: String, val value: String?): Token()
     object END_OF_FILE: Token()
 
     override fun toString(): String = javaClass.simpleName
@@ -54,22 +50,18 @@ class Lexer(notation: String) {
         var res = char.toString()
         while (!input.peek()?.isWhitespace()!!) res += input.next()
 
-        var duration = 1.0
-        var octave = 0
+        var duration: String? = null
+        var octave: String? = null
 
-        for ((index, value) in res.withIndex()) {
-            when (value) {
-                '\'' -> octave++
-                ',' -> octave--
-                '.' -> duration *= 1.5
-                else -> when {
-                    value.isDigit() -> duration /= value.toString().toDouble()
-                }
-            }
-        }
+        // Duration
+        if (res.replace("[a-z\',]".toRegex(), "").isNotEmpty()) duration = res.replace("[a-z\',]".toRegex(), "")
+        // Octave
+        if (res.replace("[a-z0-9.]".toRegex(), "").isNotEmpty()) octave = res.replace("[a-z0-9.]".toRegex(), "")
+
+        res = res.replace("[0-9\',.]".toRegex(), "")
 
         return when {
-            else -> when (res.replace("[0-9\',.]".toRegex(), "")) {
+            else -> when (res) {
                 "c",
                 "d",
                 "e",
@@ -91,10 +83,18 @@ class Lexer(notation: String) {
         // Skip the whitespace
         input.next()
 
-        var value = ""
-        while (!input.peek()?.isWhitespace()!!) value += input.next()
+        return when (type) {
 
-        return Token.EXPRESSION(type, value)
+            // Expression without value
+            "break" -> Token.EXPRESSION(type, null)
+
+            // Expression with value
+            else -> {
+                var value = ""
+                while (!input.peek()?.isWhitespace()!!) value += input.next()
+                Token.EXPRESSION(type, value)
+            }
+        }
     }
 }
 
@@ -103,10 +103,8 @@ fun main() {
     \relative c'
     {
         \clef "treble" \numericTimeSignature\time 4/4 \tempo 4=40
-        c2 d e f g2 g a4 a fes a a g1 a4 a a a \break
-        g1 f4 f f f e2 e d4 d d d c1
+        c2, d'' e f g2 g a4 a fes a a g1 a4 a a a \break g1 f4 f f f e2 e d4 d d d c1
     }
         """.trimMargin()
     Lexer(input)
-//    while(lexer.next().also(::println) !is Token.END_OF_FILE) {}
 }

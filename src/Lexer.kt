@@ -1,11 +1,15 @@
 import java.lang.Exception
 
 sealed class Token {
-    data class NOTE(val type: String, val duration: String?, val octave: String?): Token()
-    object REST: Token()
     object LEFT_PAREN: Token()
     object RIGHT_PAREN: Token()
+    object LEFT_TAG: Token()
+    object RIGHT_TAG: Token()
+    object REST: Token()
+
+    data class NOTE(val type: String, val duration: String?, val octave: String?): Token()
     data class EXPRESSION(val type: String, val value: String?): Token()
+
     object END_OF_FILE: Token()
 
     override fun toString(): String = javaClass.simpleName
@@ -36,6 +40,8 @@ class Lexer(notation: String) {
         return when (char) {
             '{' -> Token.LEFT_PAREN
             '}' -> Token.RIGHT_PAREN
+            '<' -> Token.LEFT_TAG
+            '>' -> Token.RIGHT_TAG
             '\\' -> expression()
             'c', 'd', 'e', 'f', 'g', 'a', 'b' -> note(char)
             'r' -> Token.REST
@@ -48,15 +54,10 @@ class Lexer(notation: String) {
 
     private fun note(char: Char): Token {
         var res = char.toString()
-        while (!input.peek()?.isWhitespace()!!) res += input.next()
+        while (!input.peek()?.isWhitespace()!! && input.peek() != '>') res += input.next()
 
-        var duration: String? = null
-        var octave: String? = null
-
-        // Duration
-        if (res.replace("[a-z\',]".toRegex(), "").isNotEmpty()) duration = res.replace("[a-z\',]".toRegex(), "")
-        // Octave
-        if (res.replace("[a-z0-9.]".toRegex(), "").isNotEmpty()) octave = res.replace("[a-z0-9.]".toRegex(), "")
+        val duration: String? = if (res.replace("[a-z\',]".toRegex(), "").isNotEmpty()) res.replace("[a-z\',]".toRegex(), "") else null
+        val octave: String? = if (res.replace("[a-z0-9.]".toRegex(), "").isNotEmpty()) res.replace("[a-z0-9.]".toRegex(), "") else null
 
         res = res.replace("[0-9\',.]".toRegex(), "")
 
@@ -103,7 +104,7 @@ fun main() {
     \relative c'
     {
         \clef "treble" \numericTimeSignature\time 4/4 \tempo 4=40
-        c2, d'' e f g2 g a4 a fes a a g1 a4 a a a \break g1 f4 f f f e2 e d4 d d d c1
+        c2 d e f g2 g a4 a fes a a g1 a4 a a a \break g1 f4 f f f e2 e d4 d d d c1
     }
         """.trimMargin()
     Lexer(input)

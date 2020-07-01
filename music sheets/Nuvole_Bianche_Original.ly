@@ -673,6 +673,7 @@ PartPOneVoiceSix =  \relative as {
                 \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
                 \context Voice = "PartPOneVoiceOne" {  \voiceOne \PartPOneVoiceOne }
                 \context Voice = "PartPOneVoiceTwo" {  \voiceTwo \PartPOneVoiceTwo }
+                \context Voice = "PartPOneVoiceFour" {  \voiceFour \PartPOneVoiceFour }
                 >> \context Staff = "2" <<
                 \mergeDifferentlyDottedOn\mergeDifferentlyHeadedOn
                 \context Voice = "PartPOneVoiceFive" {  \voiceOne \PartPOneVoiceFive }

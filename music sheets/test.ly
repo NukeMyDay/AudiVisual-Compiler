@@ -39,10 +39,9 @@ Good luck with LilyPond!  Happy engraving.
 %   subtitle = "Tach auch"
 % }
 
-% \relative 
+\relative c'
 {
-  c1 d e f8 g a b c e f g r2 r r64 cs r
-}
-{
-  c2 d128 e f r2 g4 a b c e f g
+    \clef "treble" \numericTimeSignature\time 4/4 \tempo 4=40
+    c d e f g2 g a4 a a a g1 a4 a a a \break
+    g1 f4 f f f e2 e d4 d d d c1
 }

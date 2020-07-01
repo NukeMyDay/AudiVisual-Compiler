@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e20aa69-8ed0-4ee7-bb83-5e2795932f95" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Notation Glossar.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music sheets/Nuvole_Bianche_Original.ly" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music sheets/Nuvole_Bianche_Original.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music sheets/Nuvole_Bianche_Original.mxl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music sheets/Nuvole_Bianche_Original.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music sheets/test.ly" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music sheets/test.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music sheets/Nuvole_Bianche_Original.ly" beforeDir="false" afterPath="$PROJECT_DIR$/music sheets/Nuvole_Bianche_Original.ly" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music sheets/Nuvole_Bianche_Original.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/music sheets/Nuvole_Bianche_Original.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music sheets/test.ly" beforeDir="false" afterPath="$PROJECT_DIR$/music sheets/test.ly" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music sheets/test.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/music sheets/test.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Lexer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lexer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.ly" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,26 +104,54 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1674" height="347" key="GridCell.Tab.0.bottom" timestamp="1593473969584">
+    <state width="1674" height="467" key="GridCell.Tab.0.bottom" timestamp="1593612224514">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="347" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1593473969584" />
-    <state width="1674" height="347" key="GridCell.Tab.0.center" timestamp="1593473969582">
+    <state width="1674" height="467" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1593612224514" />
+    <state width="1674" height="467" key="GridCell.Tab.0.center" timestamp="1593612224514">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="347" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1593473969582" />
-    <state width="1674" height="347" key="GridCell.Tab.0.left" timestamp="1593473969582">
+    <state width="1674" height="467" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1593612224514" />
+    <state width="1674" height="467" key="GridCell.Tab.0.left" timestamp="1593612224514">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="347" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1593473969582" />
-    <state width="1674" height="347" key="GridCell.Tab.0.right" timestamp="1593473969582">
+    <state width="1674" height="467" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1593612224514" />
+    <state width="1674" height="467" key="GridCell.Tab.0.right" timestamp="1593612224514">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="347" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1593473969582" />
+    <state width="1674" height="467" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1593612224514" />
+    <state width="1674" height="491" key="GridCell.Tab.1.bottom" timestamp="1593605876661">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="491" key="GridCell.Tab.1.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1593605876661" />
+    <state width="1674" height="491" key="GridCell.Tab.1.center" timestamp="1593605876661">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="491" key="GridCell.Tab.1.center/0.0.3440.1400@0.0.3440.1400" timestamp="1593605876661" />
+    <state width="1674" height="491" key="GridCell.Tab.1.left" timestamp="1593605876661">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="491" key="GridCell.Tab.1.left/0.0.3440.1400@0.0.3440.1400" timestamp="1593605876661" />
+    <state width="1674" height="491" key="GridCell.Tab.1.right" timestamp="1593605876661">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="491" key="GridCell.Tab.1.right/0.0.3440.1400@0.0.3440.1400" timestamp="1593605876661" />
     <state x="452" y="436" key="Vcs.Push.Dialog.v2" timestamp="1593456806612">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="452" y="436" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1593456806612" />
+    <state x="669" y="617" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593557905144">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="669" y="617" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.3440.1400@0.0.3440.1400" timestamp="1593557905144" />
+    <state x="631" y="509" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog" timestamp="1593537247981">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="631" y="509" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1593537247981" />
+    <state x="523" y="320" width="672" height="678" key="search.everywhere.popup" timestamp="1593603576330">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="523" y="320" width="672" height="678" key="search.everywhere.popup/0.0.3440.1400@0.0.3440.1400" timestamp="1593603576330" />
   </component>
   <component name="masterDetails">
     <states>

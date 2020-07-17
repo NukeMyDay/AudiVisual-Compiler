@@ -1,0 +1,22 @@
+<html ng-app>
+<head>
+    <title>Audivisual Compiler</title>
+    <link rel="stylesheet" href="audiVis.css">
+</head>
+<div ng-app ng-init="checked = false" class="wrapper">
+  <div class="group">
+    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 48 48" id="check" ng-class="checked ? 'checked' : ''">
+      <path fill="#fff" d="M18 32.34l-8.34-8.34-2.83 2.83 11.17 11.17 24-24-2.83-2.83z" />
+    </svg>
+    <button ng-click="checked = !checked">Toggle</button>
+  </div>
+  <div class="group">
+    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 48 48" id="check-range">
+      <path style="stroke-dashoffset: 0px" fill="#fff" d="M18 32.34l-8.34-8.34-2.83 2.83 11.17 11.17 24-24-2.83-2.83z" />
+    </svg>
+    <input type="range" min="0" max="100" ng-model="range" />
+    <h2>{{range}}px</h2>
+  </div>
+</div>
+</body>
+</html>

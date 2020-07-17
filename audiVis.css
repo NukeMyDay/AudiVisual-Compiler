@@ -1,0 +1,50 @@
+*{
+    background-color: #333;
+}
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 0 auto;
+    color: #FFF;
+  }
+  
+  .group svg {
+    display: block;
+  }
+  
+  body {
+    text-align: center;
+    padding-top: 20px;
+    background: #333;
+  }
+  
+  button {
+    appearance: none;
+    padding: 10px 15px;
+    border:none;
+    border-radius: 5px;
+    color: #373142;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #82D8D8;
+  }
+  
+  #check path, #check-range path {
+      stroke: #FFF;
+      stroke-width: 1px;
+      stroke-dasharray: 99.47578430175781px;
+      stroke-dashoffset: -99.47578430175781px;
+      fill: transparent;
+      transition: stroke-dashoffset 0.5s linear 0.4s, fill 0.4s ease;
+  }
+  
+  #check.checked path {
+      fill: #fff;
+      stroke-dashoffset: 0px;
+      transition: stroke-dashoffset 0.5s linear, fill 0.4s ease 0.5s;
+  }
+  
+  #check-range path {
+    transition: none;
+  }

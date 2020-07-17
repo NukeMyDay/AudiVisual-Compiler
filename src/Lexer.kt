@@ -1,15 +1,18 @@
 import java.lang.Exception
 
 sealed class Token {
+    // Keywords
+    data class NOTE(val type: String, val duration: String?, val octave: String?): Token()
+    data class EXPRESSION(val type: String, val value: String?): Token()
+    data class REST(val duration: String?): Token()
+
+    // Symbols
     object LEFT_PAREN: Token()
     object RIGHT_PAREN: Token()
     object LEFT_TAG: Token()
-    object RIGHT_TAG: Token()
-    object REST: Token()
+    data class RIGHT_TAG(val duration: String?): Token()
 
-    data class NOTE(val type: String, val duration: String?, val octave: String?): Token()
-    data class EXPRESSION(val type: String, val value: String?): Token()
-
+    // End of File
     object END_OF_FILE: Token()
 
     override fun toString(): String = javaClass.simpleName
@@ -30,21 +33,21 @@ class Lexer(notation: String) {
     private val input = Peekable(notation.iterator())
     private var lookahead: Token? = null
 
-    init {
-        while(next().also(::println) !is Token.END_OF_FILE) {continue}
-    }
+    override fun toString(): String = javaClass.simpleName
 
-    private fun next(): Token {
+    fun peek(): Token = next().also { lookahead = it }
+
+    fun next(): Token {
         val char = input.next() ?: return Token.END_OF_FILE
 
         return when (char) {
             '{' -> Token.LEFT_PAREN
             '}' -> Token.RIGHT_PAREN
             '<' -> Token.LEFT_TAG
-            '>' -> Token.RIGHT_TAG
+            '>' -> Token.RIGHT_TAG(if(input.peek()?.isDigit() == true) input.next().toString() else null)
+            'r' -> Token.REST(if(input.peek()?.isDigit() == true) input.next().toString() else null)
             '\\' -> expression()
             'c', 'd', 'e', 'f', 'g', 'a', 'b' -> note(char)
-            'r' -> Token.REST
             else ->  when {
                 char.isWhitespace() -> next()
                 else -> next()
@@ -54,7 +57,7 @@ class Lexer(notation: String) {
 
     private fun note(char: Char): Token {
         var res = char.toString()
-        while (!input.peek()?.isWhitespace()!! && input.peek() != '>') res += input.next()
+        while (input.peek()?.isWhitespace() == false && input.peek() != '>') res += input.next()
 
         val duration: String? = if (res.replace("[a-z\',]".toRegex(), "").isNotEmpty()) res.replace("[a-z\',]".toRegex(), "") else null
         val octave: String? = if (res.replace("[a-z0-9.]".toRegex(), "").isNotEmpty()) res.replace("[a-z0-9.]".toRegex(), "") else null
@@ -79,7 +82,7 @@ class Lexer(notation: String) {
 
     private fun expression(): Token {
         var type = ""
-        while (!input.peek()?.isWhitespace()!!) type += input.next()
+        while (input.peek()?.isWhitespace() == false) type += input.next()
 
         // Skip the whitespace
         input.next()
@@ -87,7 +90,12 @@ class Lexer(notation: String) {
         return when (type) {
 
             // Expression without value
-            "break" -> Token.EXPRESSION(type, null)
+            "break",
+            "stemDown",
+            "stemUp",
+            "fermata",
+            "mark",
+            "markup" -> Token.EXPRESSION(type, null)
 
             // Expression with value
             else -> {
@@ -99,13 +107,15 @@ class Lexer(notation: String) {
     }
 }
 
-fun main() {
+fun main () {
     val input = """
     \relative c'
     {
         \clef "treble" \numericTimeSignature\time 4/4 \tempo 4=40
-        c2 d e f g2 g a4 a fes a a g1 a4 a a a \break g1 f4 f f f e2 e d4 d d d c1
+        c2 d e <f g>2 g a4 a fes a a g1 a4 a a a \break g1 f4 f f f e2 e d4 d d d c1
     }
-        """.trimMargin()
-    Lexer(input)
+    """.trimMargin()
+
+    val lexer = Lexer(input)
+    while(lexer.next().also(::println) !is Token.END_OF_FILE) {continue}
 }

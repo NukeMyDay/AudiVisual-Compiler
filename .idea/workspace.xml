@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2e20aa69-8ed0-4ee7-bb83-5e2795932f95" name="Default Changelist" comment="" />
+    <list default="true" id="2e20aa69-8ed0-4ee7-bb83-5e2795932f95" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Processor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Lexer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lexer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +20,7 @@
       <list>
         <option value="Class" />
         <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -38,8 +44,8 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
-  <component name="RunManager" selected="Kotlin.ParserKt">
-    <configuration name="testing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Kotlin.ProcessorKt">
+    <configuration name="testing" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="testing" />
       <module name="AudiVisual-Compiler" />
       <method v="2">
@@ -59,7 +65,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParserKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+    <configuration name="ParserKt" type="JetRunConfigurationType" nameIsGenerated="true">
       <module name="AudiVisual-Compiler" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
@@ -72,11 +78,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ProcessorKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="AudiVisual-Compiler" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="ProcessorKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.ParserKt" />
+        <item itemvalue="Kotlin.ProcessorKt" />
         <item itemvalue="Kotlin.LexerKt" />
-        <item itemvalue="Application.testing" />
       </list>
     </recent_temporary>
   </component>
@@ -97,42 +115,50 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="647" y="454" key="FileChooserDialogImpl" timestamp="1594984892489">
+    <state x="321" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594988242880">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="647" y="454" key="FileChooserDialogImpl/0.0.3440.1400@0.0.3440.1400" timestamp="1594984892489" />
-    <state width="1674" height="437" key="GridCell.Tab.0.bottom" timestamp="1594986170995">
+    <state x="321" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1594988242880" />
+    <state x="596" y="489" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1594988201119">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="437" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1594986170995" />
-    <state width="1674" height="437" key="GridCell.Tab.0.center" timestamp="1594986170995">
+    <state x="596" y="489" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1594988201119" />
+    <state x="647" y="454" key="FileChooserDialogImpl" timestamp="1595336702685">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="437" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1594986170995" />
-    <state width="1674" height="437" key="GridCell.Tab.0.left" timestamp="1594986170995">
+    <state x="647" y="454" key="FileChooserDialogImpl/0.0.3440.1400@0.0.3440.1400" timestamp="1595336702685" />
+    <state width="1674" height="349" key="GridCell.Tab.0.bottom" timestamp="1595357290134">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="437" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1594986170995" />
-    <state width="1674" height="437" key="GridCell.Tab.0.right" timestamp="1594986170995">
+    <state width="1674" height="349" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1595357290134" />
+    <state width="1674" height="349" key="GridCell.Tab.0.center" timestamp="1595357290134">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="437" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1594986170995" />
-    <state width="1674" height="488" key="GridCell.Tab.1.bottom" timestamp="1594984990123">
+    <state width="1674" height="349" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1595357290134" />
+    <state width="1674" height="349" key="GridCell.Tab.0.left" timestamp="1595357290134">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="488" key="GridCell.Tab.1.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1594984990123" />
-    <state width="1674" height="488" key="GridCell.Tab.1.center" timestamp="1594984990122">
+    <state width="1674" height="349" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1595357290134" />
+    <state width="1674" height="349" key="GridCell.Tab.0.right" timestamp="1595357290134">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="488" key="GridCell.Tab.1.center/0.0.3440.1400@0.0.3440.1400" timestamp="1594984990122" />
-    <state width="1674" height="488" key="GridCell.Tab.1.left" timestamp="1594984990122">
+    <state width="1674" height="349" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1595357290134" />
+    <state width="1674" height="488" key="GridCell.Tab.1.bottom" timestamp="1595356960513">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="488" key="GridCell.Tab.1.left/0.0.3440.1400@0.0.3440.1400" timestamp="1594984990122" />
-    <state width="1674" height="488" key="GridCell.Tab.1.right" timestamp="1594984990122">
+    <state width="1674" height="488" key="GridCell.Tab.1.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1595356960513" />
+    <state width="1674" height="488" key="GridCell.Tab.1.center" timestamp="1595356960513">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1674" height="488" key="GridCell.Tab.1.right/0.0.3440.1400@0.0.3440.1400" timestamp="1594984990122" />
+    <state width="1674" height="488" key="GridCell.Tab.1.center/0.0.3440.1400@0.0.3440.1400" timestamp="1595356960513" />
+    <state width="1674" height="488" key="GridCell.Tab.1.left" timestamp="1595356960513">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="488" key="GridCell.Tab.1.left/0.0.3440.1400@0.0.3440.1400" timestamp="1595356960513" />
+    <state width="1674" height="488" key="GridCell.Tab.1.right" timestamp="1595356960513">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="488" key="GridCell.Tab.1.right/0.0.3440.1400@0.0.3440.1400" timestamp="1595356960513" />
     <state x="452" y="436" key="Vcs.Push.Dialog.v2" timestamp="1593456806612">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
@@ -145,10 +171,10 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="631" y="509" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1593537247981" />
-    <state x="523" y="320" width="672" height="678" key="search.everywhere.popup" timestamp="1593713730612">
+    <state x="523" y="320" width="672" height="678" key="search.everywhere.popup" timestamp="1595355890422">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="523" y="320" width="672" height="678" key="search.everywhere.popup/0.0.3440.1400@0.0.3440.1400" timestamp="1593713730612" />
+    <state x="523" y="320" width="672" height="678" key="search.everywhere.popup/0.0.3440.1400@0.0.3440.1400" timestamp="1595355890422" />
   </component>
   <component name="masterDetails">
     <states>

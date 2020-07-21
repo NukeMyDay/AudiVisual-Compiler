@@ -1,22 +1,47 @@
 class Parser(private val tokens: Lexer) {
+    var token: Token? = null
 
-    init {
-        var token = tokens.peek()
-
-        do {
-            when (token) {
-                is Token.EXPRESSION -> println("Expression: $token")
-                else -> println("else: $token")
-            }
-
-            token = tokens.peek()
-        } while (token != Token.END_OF_FILE)
-
+    fun next() {
+        token = tokens.peek()
     }
 
-    private fun track(token: Token) {
-        println("Starting Track $token")
+    fun parseToken(): Token? = when (token) {
+        is Token.LEFT_PAREN -> track()
+        is Token.EXPRESSION -> token
+        is Token.END_OF_FILE -> Token.END_OF_FILE
+        else -> null
+    }
 
+    private fun track(): Token.Track {
+        val track = mutableListOf<Token?>()
+
+        token = tokens.peek()
+
+        while(token != Token.RIGHT_PAREN) {
+            when(token) {
+                is Token.LEFT_TAG -> track += chord()
+                else -> {
+                    track += token
+                    token = tokens.peek()
+                }
+            }
+
+        }
+        return Token.Track(track)
+    }
+
+    private fun chord(): Token.Chord {
+        val chord = mutableListOf<Token?>()
+
+        token = tokens.peek()
+
+        while(token is Token.NOTE) {
+            chord += token
+            token = tokens.peek()
+        }
+
+        token = tokens.peek()
+        return Token.Chord(chord)
     }
 }
 
@@ -33,6 +58,5 @@ fun main() {
     }
     """.trimMargin()
 
-    val parser = Parser(Lexer(input))
-
+    Parser(Lexer(input))
 }

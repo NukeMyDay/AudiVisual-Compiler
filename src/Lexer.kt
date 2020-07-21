@@ -1,5 +1,3 @@
-import java.lang.Exception
-
 sealed class Token {
     // Keywords
     data class NOTE(val type: String, val duration: String?, val octave: String?): Token()
@@ -14,6 +12,10 @@ sealed class Token {
 
     // End of File
     object END_OF_FILE: Token()
+
+    // Parser specifics
+    data class Track(val objects: MutableList<Token?>): Token()
+    data class Chord(val notes: MutableList<Token?>): Token()
 
     override fun toString(): String = javaClass.simpleName
 }
